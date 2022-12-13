@@ -8,7 +8,8 @@ app.use(cors())
 app.use(express.json())
 app.use("/users",userRouter)
 app.use("/emi",emiRouter)
-app.listen(8080,async()=>{
+const PORT=process.env.PORT||8080;
+app.listen(PORT,async()=>{
    await dbConnect()
-   console.log("server started on http://localhost:8080")
+   console.log(`server started on ${PORT}`)
 })
